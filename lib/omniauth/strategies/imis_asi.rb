@@ -40,7 +40,7 @@ module OmniAuth
           last_name: request.params['last_name'],
           email: request.params['email'],
           username: request.params['username'],
-          access_code: request.params['access_code'],
+          access_codes: request.params['access_codes'].split('||'),
           custom_fields_data: request.params['custom_fields_data']
         }
       end
