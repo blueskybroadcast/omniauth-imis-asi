@@ -12,6 +12,9 @@ module OmniAuth
       info { raw_user_info }
 
       def request_phase
+        member_id = URI.parse(login_page_url).query.split('=').second
+        return fail!(:invalid_credentials) unless member_id.present?
+
         redirect login_page_url
       end
 
